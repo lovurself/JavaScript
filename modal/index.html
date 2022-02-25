@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="text">
+            <h1><span>J</span>ava<span>S</span>cript</h1>
+            <p>
+                HTML과 CSS로 웹페이지를 구성을 하고, <br>
+                JavaScript를 사용하여 정적인 웹페이지를 동적으로 만들어준다.
+            </p>
+            <p>
+                내가 상상하는 대로 움직이게 만들고 싶은 사람
+                <span>Join us!</span>
+            </p>
+            <div class="btn">
+                <button id="join">회원가입</button>
+                <button id="logIn">로그인</button>
+            </div>
+            <div id="joinModal" class="modalWrap" style="display: none;">
+                <div class="box">
+                    <h2>회원가입</h2>
+                    <div class="inputBox">
+                        <input type="text" placeholder="아이디를 입력하세요.">
+                        <input type="text" placeholder="비밀번호를 입력하세요.">
+                        <input type="text" placeholder="비밀번호를 확인하세요.">
+                    </div>
+                    <button>완료</button>
+                    <button id="joinClose" class="close">X</button>
+                </div>
+            </div>
+            <div id="logInModal" class="modalWrap" style="display: none;">
+                <div class="box">
+                    <h2>로그인</h2>
+                    <div class="inputBox">
+                        <input type="text" placeholder="아이디를 입력하세요.">
+                        <input type="text" placeholder="비밀번호를 입력하세요.">
+                    </div>
+                    <button>로그인</button>
+                    <button>아이디/비밀번호찾기</button>
+                    <button id="logInClose" class="close">X</button>
+                </div>
+            </div>
+        </div>
+        <div class="image"></div>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

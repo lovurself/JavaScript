@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+body {
+    background-color: #bac8ff;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.wrap {
+    width: 700px;
+    height: 500px;
+    margin: 300px auto 0;
+    text-align: center;
+}
+.wrap h1 {
+    font-size: 35px;
+    color: #495057;
+}
+.wrap p {
+    font-size: 60px;
+    font-weight: bold;
+    color: #212529;
+}

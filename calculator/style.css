@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff3bf;
+}
+button {
+    background-color: none;
+    border: none;
+    outline: none;
+}
+
+.textBox {
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+.textBox h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #5c940d;
+}
+
+.calcWrapper {
+    width: 30%;
+    height: 700px;
+    margin: 0 auto;
+    background-color: #ced4da;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calcWrapper .calc {
+   width: 95%;
+   height: 95%;
+   margin: auto;
+}
+.calcWrapper .calc .result {
+    position: relative;
+    width: 95%;
+    height: 130px;
+    margin: 15px auto 25px;
+    background-color: #868e96;
+    border-radius: 25px;
+    box-shadow: 0 -4px 4px inset rgba(0,0,0,0.25);
+}
+.calcWrapper .calc .result .store {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: rgba(0,0,0,0.8);
+}
+.calcWrapper .calc .result .currentValue {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 30px;
+}
+.calcWrapper .calc .btns {
+    width: 95%;
+    height: 480px;
+    margin: 0 auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+    background-color: #5c940d;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.calcWrapper .calc .btns .btn {
+    width: calc(25% - 20px);
+    height: 70px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #495057;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow .2s ease-in-out;
+}
+.calcWrapper .calc .btns .btn:nth-of-type(4n) {
+    margin-right: 0;
+}
+.calcWrapper .calc .btns .btn:nth-of-type(19) {
+    width: calc(50% - 30px);
+    margin-right: 0;
+}
+.calcWrapper .calc .btns .num {
+    background-color: #adb5bd;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    color: #495057;
+}
+.calcWrapper .calc .btns .btn:active {
+    box-shadow: none;
+}

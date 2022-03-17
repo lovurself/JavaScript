@@ -9,7 +9,7 @@ const equal = document.querySelector('.equal');
 const clear = document.querySelector('.clear');
 const allClear = document.querySelector('.allClear');
 const dot = document.querySelector('.dot');
-const sign = document.querySelector('.sign');
+const del = document.querySelector('.delete');
 
 // 각 num을 click 시 setNum 함수 호출, map 메소드로 배열에 담는다.
 numbers.map(number => {
@@ -23,7 +23,7 @@ symbols.map(symbol => {
 
 // btn click 시 함수 호출
 dot.addEventListener('click', setDot);
-sign.addEventListener('click', setSign);
+del.addEventListener('click', setDelete);
 equal.addEventListener('click', getTotal);
 clear.addEventListener('click', clearValue);
 
@@ -41,7 +41,7 @@ function clearStore() {
     store.innerText = '';
 }
 
-// 24자리까지 입력가능하도록 설정
+// 24자리까지 입력가능하도록 설정, store의 마지막 문자가 symbol이 아닐 경우 연산자 입력 알림창 설정
 function setNum() {
     currentValue.innerText.length < 25 ?
     currentValue.innerText += this.innerText :
@@ -58,7 +58,7 @@ function setSymbol() {
             store.innerText = `${store.innerText} ${currentValue.innerText} ${this.innerText}`
         }
     }
-    // currentValue에 값이 있다면 초기화함
+    // currentValue에 값까지 초기화함
     clearValue();
 }
 
@@ -69,17 +69,18 @@ function setDot() {
     false;
 }
 
-// -이 문자열에 있는지 찾고 없다면 -1 반환하는 것을 이용하여 -가 없다면 -을 입력하고 있다면 -를 공백으로 처리
-function setSign() {
-    currentValue.innerText.indexOf('-') === -1 ?
-    currentValue.innerText = `-${currentValue.innerText}` :
-    currentValue.innerText = currentValue.innerText.replace('-','');
+// currentValue와 store 안에 있는 값을 지워주는 함수
+function setDelete() {
+    if (currentValue.innerText !== '') {
+        currentValue.innerText = currentValue.innerText.toString().slice(0,-1);
+    }
 }
 
-// currentValue에 값이 있다면 eval함수를 이용해 문자로 표현된 JavaScript 코드를 실행함
+// currentValue에 값이 있다면 eval함수의 대체로 new Function을 이용해 문자로 표현된 JavaScript 코드를 직접 만들어서 실행함
 function getTotal() {
     if (currentValue.innerText !== '') {
-        currentValue.innerText = eval(store.innerText + currentValue.innerText);
+        const result = store.innerText + currentValue.innerText;
+        currentValue.innerText = new Function('return ' + result)();
     }
     clearStore();
 }
